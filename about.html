@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <title>About | Seowon Yoon</title>
@@ -9,11 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
   <style>
-    /* =====================
-       BASE
-       ===================== */
     body {
       margin: 0;
       background: #ffffff;
@@ -27,36 +26,51 @@
     }
 
     /* =====================
-       TOP NAV (HOME과 동일 구조)
+       TOP NAV
        ===================== */
     .top-nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: #fff;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      z-index: 1000;
+      padding: 5px 70px;
+      background: #ffffff;
+      z-index: 9999;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 16px 12px;
+      padding: 12px 12px;
+      /* ← 여기서 안전 여백 관리 */
+    }
+
+    .top-nav ul {
       display: flex;
       justify-content: flex-end;
-      gap: 16px;
+      align-items: center;
+      gap: 24px;
+      /* 🔧 메뉴 간격 조절 */
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
-    .nav-inner a {
-      font-size: 13px;
-      letter-spacing: -0.02em;
+    .top-nav a {
+      text-decoration: none;
       color: #8a8a8a;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      /* 🔧 자간 살짝 압축 */
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 200;
       white-space: nowrap;
+      /* 🔧 CONTACT 줄바꿈 방지 */
     }
 
-    .nav-inner a.active,
-    .nav-inner a:hover {
+    .top-nav a.active,
+    .top-nav a:hover {
       color: #111;
     }
 
@@ -71,7 +85,7 @@
 
     .about-section {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 450px 1fr;
       gap: 60px;
       margin-bottom: 140px;
       opacity: 0;
@@ -88,7 +102,7 @@
        LEFT TITLE
        ===================== */
     .section-title {
-      font-family: "Playfair Display", serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .section-title .index {
@@ -98,10 +112,12 @@
     }
 
     .section-title h2 {
-      font-size: 40px;
-      line-height: 1.15;
+      font-size: 65px;
+      line-height: 1.1;
       margin: 0;
-      font-weight: 500;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
     }
 
     /* =====================
@@ -111,6 +127,8 @@
       font-size: 15px;
       line-height: 1.8;
       color: #333;
+      padding-top: 240px;
+      /* 타이틀보다 확실히 아래로 내림 */
     }
 
     .section-content ul {
@@ -122,11 +140,67 @@
     }
 
     /* =====================
-       RESPONSIVE
+       CATCHPHRASE
        ===================== */
+    .catchphrase {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      line-height: 1.4;
+      margin-bottom: 120px;
+    }
+
+    .catchphrase span {
+      display: block;
+      color: #666;
+      font-size: 16px;
+      margin-top: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =====================
+       KEY FACTS
+       ===================== */
+    .key-facts {
+      display: flex;
+      gap: 40px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .fact {
+      min-width: 160px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .fact span {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 480px) {
+      .top-nav {
+        padding: 14px 18px;
+      }
+
+      .top-nav ul {
+        gap: 16px;
+      }
+    }
+
     @media (max-width: 900px) {
       .about-section {
         grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .key-facts {
         gap: 24px;
       }
     }
@@ -135,18 +209,27 @@
 
 <body>
 
-  <!-- NAV -->
   <header class="top-nav">
     <div class="nav-inner">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="mywork.html">My Work</a>
-      <a href="contact.html">Contact</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="mywork.html">My Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- CONTENT -->
   <main>
+
+    <!-- CATCHPHRASE -->
+    <div class="catchphrase">
+      위험을 발견하는 보안이 아니라,<br>
+      위험이 반복되지 않도록 설계하는 보안 엔지니어
+      <span>Security Engineer focused on prevention, operation, and accountability</span>
+    </div>
 
     <!-- 01 -->
     <section class="about-section">
@@ -155,8 +238,13 @@
         <h2>A Little<br>About Me</h2>
       </div>
       <div class="section-content">
-        로그·정책·트래픽을 기반으로 공격을 줄이는 보안 엔지니어 윤서원입니다.<br>
-        공격 시나리오를 가정하고, 탐지·대응·기록까지 이어지는 보안 구조를 설계하는 데 집중합니다.
+        로그·트래픽·개인정보 흐름을 기반으로<br>
+        위험이 반복되지 않도록 보안 구조를 설계하는 보안 엔지니어 윤서원입니다.<br><br>
+
+        군 보안 실무에서 절차 미준수가 곧 사고로 이어지는 환경을 경험하며,
+        보안을 단순한 통제가 아닌 ‘예방과 운영’의 문제로 인식해 왔습니다.
+        이후 웹·클라우드 환경에서도 공격 시나리오를 가정하고,
+        탐지·대응·기록까지 이어지는 보안 흐름을 설계하는 데 집중하고 있습니다.
       </div>
     </section>
 
@@ -167,8 +255,32 @@
         <h2>Work<br>Experience</h2>
       </div>
       <div class="section-content">
-        <strong>Military Service | Security Operations</strong><br>
-        고급 정보 취급, 접근 통제, 파견 임무 기반 정보 지원 수행
+        <strong>Military Service | Security Operations</strong><br><br>
+
+        군 조직 전반(문서·인원·시설·통신·정보·작전)의
+        보안 준수 여부를 점검하며,
+        개인정보 및 고등급 정보 취급·접근 통제·관리 절차를 운영했습니다.<br><br>
+
+        UFS 연합훈련 증원요원으로 3회 파견되어
+        북한군 전투서열(ORBAT) 등 고등급 군사정보를
+        정확성·최신성 기준으로 관리·제공했으며,
+        상급부대 감사 대비 보안 점검 및 개선 컨설팅을 수행했습니다.
+
+        <!-- KEY FACTS -->
+        <div class="key-facts">
+          <div class="fact">
+            <strong>3+</strong>
+            <span>Dispatch Missions<br>Information Support</span>
+          </div>
+          <div class="fact">
+            <strong>1+</strong>
+            <span>Year Privacy<br>Responsibility</span>
+          </div>
+          <div class="fact">
+            <strong>30+</strong>
+            <span>Security Scenarios<br>(Projects)</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -179,8 +291,12 @@
         <h2>Education</h2>
       </div>
       <div class="section-content">
-        KT Cloud TECH-UP Cybersecurity Bootcamp<br>
-        클라우드·보안 자동화·침해 대응 프로젝트 수행
+        KT Cloud TECH-UP Cybersecurity Bootcamp<br><br>
+
+        AWS 기반 보안 이벤트 자동 탐지·대응(SOAR) 프로젝트와
+        Kubernetes 침투 재현 및 워게임 프로젝트를 수행하며,
+        클라우드·컨테이너 환경에서
+        탐지 → 대응 → 검증까지 이어지는 보안 흐름을 실습했습니다.
       </div>
     </section>
 
@@ -192,9 +308,10 @@
       </div>
       <div class="section-content">
         <ul>
-          <li>AWS / Cloud Security</li>
-          <li>Kubernetes / Container Security</li>
-          <li>Incident Response & Logging</li>
+          <li>Security Operations & Incident Response</li>
+          <li>Logging · Monitoring · Threat Analysis</li>
+          <li>AWS · Cloud Security Automation (SOAR)</li>
+          <li>Kubernetes · Container Security</li>
           <li>GRC · Privacy · ISMS-P</li>
         </ul>
       </div>
@@ -202,24 +319,20 @@
 
   </main>
 
-  <!-- SCROLL ANIMATION -->
   <script>
     const sections = document.querySelectorAll(".about-section");
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.3 });
 
     sections.forEach(section => observer.observe(section));
   </script>
 
 </body>
-</html>
 
+</html>
