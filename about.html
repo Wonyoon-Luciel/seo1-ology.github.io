@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>About | Seowon Yoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- HOME과 동일한 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================
+       BASE
+       ===================== */
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =====================
+       TOP NAV (HOME과 동일 구조)
+       ===================== */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 12px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    .nav-inner a {
+      font-size: 13px;
+      letter-spacing: -0.02em;
+      color: #8a8a8a;
+      white-space: nowrap;
+    }
+
+    .nav-inner a.active,
+    .nav-inner a:hover {
+      color: #111;
+    }
+
+    /* =====================
+       PAGE LAYOUT
+       ===================== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 140px 12px 120px;
+    }
+
+    .about-section {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      margin-bottom: 140px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .about-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================
+       LEFT TITLE
+       ===================== */
+    .section-title {
+      font-family: "Playfair Display", serif;
+    }
+
+    .section-title .index {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      line-height: 1.15;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* =====================
+       RIGHT CONTENT
+       ===================== */
+    .section-content {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .section-content ul {
+      padding-left: 18px;
+    }
+
+    .section-content li {
+      margin-bottom: 8px;
+    }
+
+    /* =====================
+       RESPONSIVE
+       ===================== */
+    @media (max-width: 900px) {
+      .about-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="mywork.html">My Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+
+    <!-- 01 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">01</div>
+        <h2>A Little<br>About Me</h2>
+      </div>
+      <div class="section-content">
+        로그·정책·트래픽을 기반으로 공격을 줄이는 보안 엔지니어 윤서원입니다.<br>
+        공격 시나리오를 가정하고, 탐지·대응·기록까지 이어지는 보안 구조를 설계하는 데 집중합니다.
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">02</div>
+        <h2>Work<br>Experience</h2>
+      </div>
+      <div class="section-content">
+        <strong>Military Service | Security Operations</strong><br>
+        고급 정보 취급, 접근 통제, 파견 임무 기반 정보 지원 수행
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">03</div>
+        <h2>Education</h2>
+      </div>
+      <div class="section-content">
+        KT Cloud TECH-UP Cybersecurity Bootcamp<br>
+        클라우드·보안 자동화·침해 대응 프로젝트 수행
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">04</div>
+        <h2>Skills &<br>Expertise</h2>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>AWS / Cloud Security</li>
+          <li>Kubernetes / Container Security</li>
+          <li>Incident Response & Logging</li>
+          <li>GRC · Privacy · ISMS-P</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SCROLL ANIMATION -->
+  <script>
+    const sections = document.querySelectorAll(".about-section");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
+

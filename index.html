@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seowon Yoon | Security Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Hyperspace 기본 CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+  <!-- Serif Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================
+       BASE
+       ===================== */
+    body {
+      background: #ffffff;
+      color: #111;
+    }
+
+    .wrapper {
+      background: #ffffff !important;
+    }
+
+    /* =====================
+       TOP NAV 
+       ===================== */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      z-index: 9999;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 12px;   /* ← 여기서 안전 여백 관리 */
+    }
+
+    .top-nav ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 24px;                       /* 🔧 메뉴 간격 조절 */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #8a8a8a;
+      font-size: 14px;
+      letter-spacing: -0.02em;   /* 🔧 자간 살짝 압축 */
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 200;
+      white-space: nowrap;             /* 🔧 CONTACT 줄바꿈 방지 */
+    }
+
+    .top-nav a.active,
+    .top-nav a:hover {
+      color: #111;
+    }
+
+    /* =====================
+       HERO LAYOUT
+       ===================== */
+    #intro {
+      height: 100vh;
+      padding-top: 96px;               /* 🔧 네비 높이 보정 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #intro .inner {
+      position: relative;
+      width: min(1100px, 92vw);
+      text-align: center;
+    }
+
+    /* =====================
+       HERO TEXT
+       ===================== */
+    .hero-name {
+      font-family: "Playfair Display", serif;
+      font-size: 78px;                 /* 🔧 살짝 줄임 */
+      font-weight: 500;
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 104px;                /* 🔧 줄임 */
+      font-weight: 400;
+      letter-spacing: 0.075em;         /* 🔧 자간 조정 */
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 42px;
+    }
+
+    /* =====================
+       HERO IMAGE (비스듬히)
+       ===================== */
+    .hero-image {
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-6deg);
+      width: 260px;
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    /* =====================
+       BUTTON (톤 조정)
+       ===================== */
+    .hero-button {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid #d0d0d0;
+      background: #f2f2f2;              /* 🔧 톤 맞춤 */
+      color: #111;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .hero-button:hover {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    /* =====================
+       ANIMATION
+       ===================== */
+    .hero-name,
+    .hero-title,
+    .hero-subtitle,
+    .hero-button,
+    .hero-image {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    #intro.show .hero-name {
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    #intro.show .hero-title {
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    #intro.show .hero-image {
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    #intro.show .hero-subtitle {
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.45s;
+    }
+
+    #intro.show .hero-button {
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =====================
+       RESPONSIVE
+       ===================== */
+    @media (max-width: 900px) {
+      .hero-name { font-size: 56px; }
+      .hero-title { font-size: 72px; }
+      .hero-image { width: 200px; top: 90px; }
+    }
+
+    @media (max-width: 480px) {
+      .top-nav { padding: 14px 18px; }
+      .top-nav ul { gap: 16px; }
+      .hero-name { font-size: 42px; }
+      .hero-title { font-size: 52px; }
+      .hero-image { display: none; }   /* 모바일에선 사진 제거 */
+    }
+  </style>
+</head>
+
+<body class="is-preload">
+
+  <!-- TOP NAV -->
+  <header class="top-nav">
+    <div class="nav-inner">
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="mywork.html">My Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- WRAPPER -->
+  <div id="wrapper">
+    <section id="intro" class="wrapper">
+      <div class="inner">
+
+        <!-- IMAGE -->
+        <img src="images/Home_1.jpg" alt="Profile" class="hero-image" />
+
+        <!-- TEXT -->
+        <h1 class="hero-name">SEOWON YOON</h1>
+        <h2 class="hero-title">PORTFOLIO</h2>
+        <p class="hero-subtitle">Security Engineer</p>
+
+        <a href="mywork.html" class="hero-button">VIEW MY WORK</a>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("intro").classList.add("show");
+    });
+  </script>
+
+</body>
+</html>
+
