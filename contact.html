@@ -1,34 +1,266 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Contact | 윤서원</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <title>Contact | Seowon Yoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================
+       BASE
+       ===================== */
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =====================
+       TOP NAV (Same as about.html)
+       ===================== */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 5px 70px;
+      background: #ffffff;
+      z-index: 9999;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 12px;
+    }
+
+    .top-nav ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #8a8a8a;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 200;
+      white-space: nowrap;
+    }
+
+    .top-nav a.active,
+    .top-nav a:hover {
+      color: #111;
+    }
+
+    /* =====================
+       LAYOUT
+       ===================== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 180px 12px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 80vh;
+      box-sizing: border-box;
+    }
+
+    .contact-left {
+      flex: 1;
+      padding-right: 50px;
+    }
+
+    .contact-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* =====================
+       TITLE
+       ===================== */
+    .contact-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 80px;
+      line-height: 1.1;
+      font-weight: 400;
+      margin: 0 0 80px 0;
+      /* Image spacing */
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    /* =====================
+       INFO LIST
+       ===================== */
+    .contact-info {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      /* Reference looks quite large */
+      line-height: 1.6;
+      color: #111;
+      margin-bottom: 60px;
+    }
+
+    .contact-info div {
+      margin-bottom: 8px;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-info .label {
+      display: inline-block;
+      min-width: 100px;
+      /* 라벨과 내용을 띄우기 위한 최소 너비 */
+    }
+
+    /* =====================
+       BUTTON (REMOVED)
+       ===================== */
+
+    /* =====================
+       IMAGE
+       ===================== */
+    .contact-image-wrapper {
+      position: relative;
+      /* Rotate wrapper */
+      transform: rotate(5deg);
+    }
+
+    .contact-image {
+      width: 320px;
+      height: auto;
+      display: block;
+      filter: grayscale(100%);
+      /* B/W effect like reference */
+      box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* =====================
+       RESPONSIVE
+       ===================== */
+    @media (max-width: 900px) {
+      .top-nav {
+        padding: 14px 18px;
+      }
+
+      .top-nav ul {
+        gap: 16px;
+      }
+
+      main {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 120px;
+      }
+
+      .contact-left {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 80px;
+      }
+
+      .contact-title {
+        font-size: 56px;
+        margin-bottom: 40px;
+      }
+
+      .contact-info {
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
+
+      .contact-right {
+        width: 100%;
+      }
+
+      .contact-image {
+        width: 80%;
+        max-width: 320px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="nav">
-  <a href="index.html" class="logo">HOME</a>
-  <nav>
-    <a href="about.html">ABOUT</a>
-    <a href="mywork.html">MY WORK</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
-</header>
+  <!-- NAV -->
+  <header class="top-nav">
+    <div class="nav-inner">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="mywork.html">My Work</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<main class="page">
+  <!-- CONTENT -->
+  <main>
+    <div class="contact-left">
+      <h1 class="contact-title">WORK<br>WITH ME</h1>
 
-  <h2>Contact</h2>
+      <div class="contact-info">
+        <div><span class="label">GitHub</span> <a href="https://github.com/seo1-ology" target="_blank">@seo1-ology</a>
+        </div>
+        <div><span class="label">Velog</span> <a href="https://velog.io/@seowon6766/posts"
+            target="_blank">@seowon6766</a></div>
+        <div><span class="label">Notion</span> <a
+            href="https://www.notion.so/Seowon-Yoon-Security-Portfolio-2f77bf85d41b805e9438e3e783ab59e2"
+            target="_blank">@Seo1</a></div>
+        <div><span class="label">Email</span> <a href="mailto:seowon6766@gmail.com">seowon6766@gmail.com</a></div>
+        <div><span class="label">Phone</span> <span>010-3888-6766</span></div>
+      </div>
+    </div>
 
-  <p>Email: your-email@example.com</p>
+    <div class="contact-right">
+      <div class="contact-image-wrapper">
+        <!-- Assuming the user will place the file here or it's already there -->
+        <img src="images/contact_1.jpeg" alt="Contact Profile" class="contact-image">
+      </div>
+    </div>
+  </main>
 
-  <p>
-    <a href="https://github.com/yourid">GitHub</a><br>
-    <a href="https://velog.io/@yourid">Velog</a>
-  </p>
-
-</main>
+  <script>
+    // Simple load animation
+    window.onload = function () {
+      document.querySelector('main').style.opacity = 0;
+      document.querySelector('main').style.transition = 'opacity 1s ease';
+      setTimeout(() => {
+        document.querySelector('main').style.opacity = 1;
+      }, 100);
+    };
+  </script>
 
 </body>
-</html>
 
+</html>

@@ -1,40 +1,295 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My Work | 윤서원</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <title>My Work | Seowon Yoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- HOME과 동일한 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =====================
+       TOP NAV
+       ===================== */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 5px 70px;
+      background: #ffffff;
+      z-index: 9999;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 12px;
+      /* ← 여기서 안전 여백 관리 */
+    }
+
+    .top-nav ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 24px;
+      /* 🔧 메뉴 간격 조절 */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #8a8a8a;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      /* 🔧 자간 살짝 압축 */
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 200;
+      white-space: nowrap;
+      /* 🔧 CONTACT 줄바꿈 방지 */
+    }
+
+    .top-nav a.active,
+    .top-nav a:hover {
+      color: #111;
+    }
+
+    /* =====================
+       PAGE LAYOUT
+       ===================== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 140px 12px 120px;
+    }
+
+    .about-section {
+      display: grid;
+      grid-template-columns: 450px 1fr;
+      gap: 60px;
+      margin-bottom: 140px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .about-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================
+       LEFT TITLE
+       ===================== */
+    .section-title {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .section-title .index {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: 65px;
+      line-height: 1.1;
+      margin: 0;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    /* =====================
+       RIGHT CONTENT
+       ===================== */
+    .section-content {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333;
+      padding-top: 240px;
+      /* 타이틀보다 확실히 아래로 내림 */
+    }
+
+    .section-content ul {
+      padding-left: 18px;
+    }
+
+    .section-content li {
+      margin-bottom: 8px;
+    }
+
+    /* =====================
+       CATCHPHRASE
+       ===================== */
+    .catchphrase {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      line-height: 1.4;
+      margin-bottom: 120px;
+    }
+
+    .catchphrase span {
+      display: block;
+      color: #666;
+      font-size: 16px;
+      margin-top: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =====================
+       KEY FACTS
+       ===================== */
+    .key-facts {
+      display: flex;
+      gap: 40px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .fact {
+      min-width: 160px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .fact span {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 480px) {
+      .top-nav {
+        padding: 14px 18px;
+      }
+
+      .top-nav ul {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .about-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .key-facts {
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="nav">
-  <a href="index.html" class="logo">HOME</a>
-  <nav>
-    <a href="about.html">ABOUT</a>
-    <a href="mywork.html">MY WORK</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
-</header>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="mywork.html" class="active">My Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<main class="page">
+  <main>
 
-  <section>
-    <h2>01 기본 프로젝트</h2>
-    <p>AWS 기반 보안 이벤트 탐지 및 자동 대응 시스템</p>
-  </section>
+    <!-- CATCHPHRASE -->
+    <div class="catchphrase">
+      (내용 첨부 필요)
+      <span>(내용 첨부 필요)</span>
+    </div>
 
-  <section>
-    <h2>02 심화 프로젝트</h2>
-    <p>Kubernetes CVE 침투 재현 및 트래픽 분석</p>
-  </section>
+    <!-- 01 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">01</div>
+        <h2>PROJECT 1</h2>
+      </div>
+      <div class="section-content">
+        (내용 첨부 필요)
+      </div>
+    </section>
 
-  <section>
-    <h2>03 실무 프로젝트</h2>
-    <p>AI 매크로 방어 및 VQA 보안 설계</p>
-  </section>
+    <!-- 02 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">02</div>
+        <h2>PROJECT 2</h2>
+      </div>
+      <div class="section-content">
+        (내용 첨부 필요)
+      </div>
+    </section>
 
-</main>
+    <!-- 03 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">03</div>
+        <h2>SIDE<br>PROJECT</h2>
+      </div>
+      <div class="section-content">
+        (내용 첨부 필요)
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="about-section">
+      <div class="section-title">
+        <div class="index">04</div>
+        <h2>PERSONAL<br>PROJECT</h2>
+      </div>
+      <div class="section-content">
+        (내용 첨부 필요)
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll(".about-section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 
 </body>
-</html>
 
+</html>
