@@ -165,6 +165,36 @@
     /* =====================
        RESPONSIVE
        ===================== */
+    /* =====================
+       ANIMATION
+       ===================== */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-left {
+      opacity: 0;
+      animation: fadeDown 1s ease-out forwards;
+    }
+
+    .contact-right {
+      opacity: 0;
+      animation: fadeDown 1s ease-out forwards;
+      animation-delay: 0.3s;
+      /* 오른쪽 사진은 살짝 늦게 */
+    }
+
+    /* =====================
+       RESPONSIVE
+       ===================== */
     @media (max-width: 900px) {
       .top-nav {
         padding: 14px 18px;
@@ -250,16 +280,7 @@
     </div>
   </main>
 
-  <script>
-    // Simple load animation
-    window.onload = function () {
-      document.querySelector('main').style.opacity = 0;
-      document.querySelector('main').style.transition = 'opacity 1s ease';
-      setTimeout(() => {
-        document.querySelector('main').style.opacity = 1;
-      }, 100);
-    };
-  </script>
+
 
 </body>
 
