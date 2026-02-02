@@ -85,8 +85,8 @@
 
     .about-section {
       display: grid;
-      grid-template-columns: 450px 1fr;
-      gap: 60px;
+      grid-template-columns: 400px 1fr;
+      gap: 50px;
       margin-bottom: 140px;
       opacity: 0;
       transform: translateY(40px);
@@ -127,8 +127,7 @@
       font-size: 15px;
       line-height: 1.8;
       color: #333;
-      padding-top: 240px;
-      /* 타이틀보다 확실히 아래로 내림 */
+      padding-top: 100px;
     }
 
     .section-content ul {
@@ -227,7 +226,7 @@
 
     <!-- CATCHPHRASE -->
     <div class="catchphrase">
-      위험을 발견하는 보안이 아니라,<br>
+      (수정필요)위험을 발견하는 보안이 아니라,<br>
       위험이 반복되지 않도록 설계하는 보안 엔지니어
       <span>Security Engineer focused on prevention, operation, and accountability</span>
     </div>
@@ -239,13 +238,15 @@
         <h2>A Little<br>About Me</h2>
       </div>
       <div class="section-content">
-        로그·트래픽·개인정보 흐름을 기반으로<br>
-        위험이 반복되지 않도록 보안 구조를 설계하는 보안 엔지니어 윤서원입니다.<br><br>
+        저는 ‘기록이 남는 보안’을 설계합니다.<br><br>
 
-        군 보안 실무에서 절차 미준수가 곧 사고로 이어지는 환경을 경험하며,
-        보안을 단순한 통제가 아닌 ‘예방과 운영’의 문제로 인식해 왔습니다.
-        이후 웹·클라우드 환경에서도 공격 시나리오를 가정하고,
-        탐지·대응·기록까지 이어지는 보안 흐름을 설계하는 데 집중하고 있습니다.
+        군 복무 중 문서·인원·시설·통신·정보·작전 전반의 보안 업무를 수행하며,<br>
+        보안 사고는 단일 취약점이 아니라<br>
+        절차의 누락, 책임의 불명확함, 가시성 부족에서 발생한다는 것을 체득했습니다.<br><br>
+
+        현재는 웹·클라우드 환경에서 발생할 수 있는 공격을 가정하고,<br>
+        로그·트래픽·개인정보 흐름을 기반으로<br>
+        탐지 → 대응 → 재발 방지가 실제로 작동하는 보안 구조를 설계하고 있습니다.<br><br>
       </div>
     </section>
 
@@ -253,37 +254,181 @@
     <section class="about-section">
       <div class="section-title">
         <div class="index">02</div>
-        <h2>Work<br>Experience</h2>
+        <h2>Various<br>Experience</h2>
       </div>
       <div class="section-content">
-        <strong>Military Service | Security Operations</strong><br><br>
+        <div class="experience-grid">
 
-        군 조직 전반(문서·인원·시설·통신·정보·작전)의
-        보안 준수 여부를 점검하며,
-        개인정보 및 고등급 정보 취급·접근 통제·관리 절차를 운영했습니다.<br><br>
-
-        UFS 연합훈련 증원요원으로 3회 파견되어
-        북한군 전투서열(ORBAT) 등 고등급 군사정보를
-        정확성·최신성 기준으로 관리·제공했으며,
-        상급부대 감사 대비 보안 점검 및 개선 컨설팅을 수행했습니다.
-
-        <!-- KEY FACTS -->
-        <div class="key-facts">
-          <div class="fact">
-            <strong>3+</strong>
-            <span>Dispatch Missions<br>Information Support</span>
+          <!-- Panel 1: Military Service (Existing) -->
+          <div class="experience-item">
+            <h3 class="exp-title">Military Service |<br>Security Operations</h3>
+            <p class="exp-desc">
+              개인정보보호 책임자 명령으로 정보과장을 맡아,<br>
+              문서·인원·시설·통신·정보·작전 전반에 이르는<br>
+              통합 보안 관리 체계를 운영했습니다.<br><br>
+              특히 실무 현장의 특성을 반영한<br>
+              개인정보 취급 및 접근 통제 절차를 수립하고,<br>
+              상시 점검하며 보안 공백 최소화에 집중했습니다.
+            </p>
+            <!-- KEY FACTS (Keep it here for now, vertically stacked) -->
+            <div class="key-facts sm">
+              <div class="fact">
+                <strong>1+</strong>
+                <span>Year Privacy Resp.</span>
+              </div>
+            </div>
           </div>
-          <div class="fact">
-            <strong>1+</strong>
-            <span>Year Privacy<br>Responsibility</span>
+
+          <!-- Panel 2: Placeholder -->
+          <div class="experience-item">
+            <h3 class="exp-title">Security Audit |<br>Excellent Evaluation</h3>
+            <p class="exp-desc">
+              상급부대 보안 감사를 대비하여 취약점<br>
+              사전 점검 및 맞춤형 개선 컨설팅을 총괄했습니다.<br><br>
+              철저한 준비와 선제적인 대응을 통해<br>
+              보안 감사 '탁월' 등급을 획득했으며,<br>
+              여단 내 1위라는 우수한 성과를 거두며<br>
+              조직의 보안 수준을 입증했습니다.
+            </p>
+            <!-- KEY FACTS (Keep it here for now, vertically stacked) -->
+            <div class="key-facts sm">
+              <div class="fact">
+                <strong>6+</strong>
+                <span>Security Domains Managed</span>
+              </div>
+              <div class="fact">
+                <strong>1st</strong>
+                <span>Unit Security Audit</span>
+              </div>
+            </div>
           </div>
-          <div class="fact">
-            <strong>30+</strong>
-            <span>Security Scenarios<br>(Projects)</span>
+
+          <!-- Panel 3: Placeholder -->
+          <div class="experience-item">
+            <h3 class="exp-title">Joint Exercise Deployment |<br>Classified Information</h3>
+            <p class="exp-desc">
+              군단 UFS·FS 등 주요 연합훈련에<br>
+              3회 연속 증원요원으로 선발되어<br>
+              북한 전투서열 등 고등급 군사정보를 관리했습니다.<br><br>
+              정보의 '정확성'과 '최신성'을 최우선으로 하여<br>
+              작전 수행에 필요한 데이터를 적시에 제공했으며,<br>
+              그 공로를 인정받아 군단장 표창을 수상하며<br>
+              임무 수행 능력을 인정받았습니다.
+            </p>
+            <!-- KEY FACTS (Keep it here for now, vertically stacked) -->
+            <div class="key-facts sm">
+              <div class="fact">
+                <strong>3+</strong>
+                <span>Dispatch Missions</span>
+              </div>
+              <div class="fact">
+                <strong>1×</strong>
+                <span>Corps Commander Commendation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Placeholder -->
+          <div class="experience-item">
+            <h3 class="exp-title">Digital Crime Research |<br>Evidence & Jurisdiction</h3>
+            <p class="exp-desc">
+              범죄 구조 분석과 수사 담당자 인터뷰,<br>
+              관련 판례·논문 조사를 병행하며<br>
+              '기술적 가능성'과 '법적 허용 범위' 사이의 간극을<br>
+              깊이 있게 탐구했습니다.<br><br>
+              이를 통해 개인정보 보호와 증거 관리 관점에서<br>
+              보안 운영이 직면한 실질적인 한계를 분석했으며,<br>
+              준거성을 갖춘 보안 설계의 중요성을 체득했습니다.
+            </p>
+            <!-- KEY FACTS (Keep it here for now, vertically stacked) -->
+            <div class="key-facts sm">
+              <div class="fact">
+                <strong>3</strong>
+                <span>Key Legal Issues</span>
+              </div>
+              <div class="fact">
+                <strong>4+</strong>
+                <span>Multi-Platform Evidence</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <style>
+      /* EXPERIENCE GRID (Inline style for specificity) */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+        row-gap: 50px;
+      }
+
+      .experience-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .exp-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        margin: 0 0 16px 0;
+        line-height: 1.3;
+        color: #111;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+        display: inline-block;
+      }
+
+      .exp-desc {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin: 0;
+      }
+
+      /* Adjust key facts for smaller grid column */
+      .key-facts.sm {
+        display: flex;
+        flex-direction: column;
+        /* Stack vertically in the narrow column */
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .key-facts.sm .fact {
+        min-width: auto;
+        display: flex;
+        align-items: center;
+        /* 수직 중앙 정렬 */
+        gap: 12px;
+        /* 숫자와 글자 사이 간격 */
+      }
+
+      .key-facts.sm .fact strong {
+        font-size: 20px;
+        margin-bottom: 0;
+        /* 아래 여백 제거 */
+        display: inline-block;
+        min-width: 30px;
+        /* 숫자 너비 고정 (선택사항, 정렬 예쁘게) */
+      }
+
+      .key-facts.sm .fact span {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.2;
+      }
+
+      /* Responsive for Grid */
+      @media (max-width: 768px) {
+        .experience-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
 
     <!-- 03 -->
     <section class="about-section">
@@ -292,14 +437,79 @@
         <h2>Education</h2>
       </div>
       <div class="section-content">
-        KT Cloud TECH-UP Cybersecurity Bootcamp<br><br>
+        <div class="education-list">
 
-        AWS 기반 보안 이벤트 자동 탐지·대응(SOAR) 프로젝트와
-        Kubernetes 침투 재현 및 워게임 프로젝트를 수행하며,
-        클라우드·컨테이너 환경에서
-        탐지 → 대응 → 검증까지 이어지는 보안 흐름을 실습했습니다.
+          <!-- Item 1 -->
+          <div class="education-item">
+            <h3 class="edu-title">KT Cloud TECH-UP | Cybersecurity Bootcamp</h3>
+            <p class="edu-desc">
+              kt cloud TECH UP 사이버보안 교육 과정을 통해<br>
+              실제 운영 환경을 가정한 클라우드·컨테이너 보안 구조를 설계하며,<br>
+              탐지·대응·자동화 중심의 보안 엔지니어링 역량을 확보했습니다.<br><br>
+              단순 이론 습득을 넘어 공격 시나리오 재현과 로그 분석을 통해,<br>
+              실무 현장에서 즉시 작동 가능한 '실효성 있는 보안 체계'를 구현하는 데 집중했습니다.
+            </p>
+          </div>
+          <div class="edu-separator"></div>
+
+          <!-- Item 2 -->
+          <div class="education-item">
+            <h3 class="edu-title">KOREA IT ACADEMY | System & Security Fundamentals</h3>
+            <p class="edu-desc">
+              KOREA IT ACADEMY에서 시스템·네트워크·보안의 기초를 다지며,<br>
+              웹과 인프라의 동작 원리 및 취약점 발생 메커니즘을 체계화했습니다.<br><br>
+              단순히 기술을 '활용'하는 수준을 넘어,<br>
+              문제의 근본 원인을 구조적으로 분석하고 설명할 수 있는 탄탄한 기술적 기초 체력을 기르는 데 주력했습니다.
+            </p>
+          </div>
+          <div class="edu-separator"></div>
+
+          <!-- Item 3 -->
+          <div class="education-item">
+            <h3 class="edu-title">Military Security Academy | Security Operations</h3>
+            <p class="edu-desc">
+              군 보안아카데미에서 고등급 군사정보 및 개인정보 취급 규정을 체계적으로 익히고,<br>
+              보안 운영과 감사, 통제 전반에 대한 전문성을 강화했습니다.<br><br>
+              우수한 성적으로 '우수 수료'를 달성하며 규정 준수의 엄중함을 깊이 이해했으며,<br>
+              책임감 있는 보안 운영 마인드를 실무 관점에서 내재화했습니다.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
+
+    <style>
+      .education-list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .edu-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 10px 0;
+        color: #111;
+        /* 본문과 구분되는 제목 스타일 (밑줄 없음) */
+      }
+
+      .edu-desc {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin: 0;
+      }
+
+      .edu-separator {
+        width: 100%;
+        height: 1px;
+        background-color: #eee;
+        /* 얇은 회색 선 */
+        margin: 10px 0;
+        /* 위아래 간격 */
+      }
+    </style>
 
     <!-- 04 -->
     <section class="about-section">
