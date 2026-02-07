@@ -85,8 +85,8 @@
 
     .about-section {
       display: grid;
-      grid-template-columns: 450px 1fr;
-      gap: 60px;
+      grid-template-columns: 400px 1fr;
+      gap: 50px;
       margin-bottom: 140px;
       opacity: 0;
       transform: translateY(40px);
@@ -127,8 +127,7 @@
       font-size: 15px;
       line-height: 1.8;
       color: #333;
-      padding-top: 240px;
-      /* 타이틀보다 확실히 아래로 내림 */
+      padding-top: 100px;
     }
 
     .section-content ul {
@@ -206,6 +205,117 @@
       }
     }
   </style>
+  <style>
+    /* =====================
+       PROJECT LIST STYLES
+       ===================== */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Toggle Styling */
+    details {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      /* Divider between projects */
+      padding-bottom: 10px;
+      overflow: hidden;
+      /* Required for JS slide animation */
+    }
+
+    details:last-child {
+      border-bottom: none;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      transition: color 0.3s ease;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary:hover .project-title {
+      color: #000;
+      opacity: 0.8;
+    }
+
+    /* Custom Toggle Icon */
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 300;
+      color: #999;
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+      /* Add some space between text and icon */
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    /* Wrapper for Title + Subtitle */
+    .summary-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* 1. Title Style */
+    .project-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #111;
+      margin: 0;
+    }
+
+    /* Subtitle Style */
+    .project-subtitle {
+      font-size: 14px;
+      color: #777;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* 2 & 3. Body Style (Same as Study & Education .edu-desc) inside Toggle */
+    .project-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-separator {
+      width: 100%;
+      height: 1px;
+      background-color: #eee;
+      margin: 10px 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -235,10 +345,154 @@
     <section class="about-section">
       <div class="section-title">
         <div class="index">01</div>
-        <h2>PROJECT 1</h2>
+        <h2>MAJOR<br>PROJECTS</h2>
       </div>
       <div class="section-content">
-        (내용 첨부 필요)
+        <div class="project-list">
+
+          <details>
+            <summary>
+              <div class="summary-content">
+                <h3 class="project-title">AWS-SOAR</h3>
+                <span class="project-subtitle">
+                  AWS 기반 보안 이벤트 자동 탐지·대응 시스템<br>
+                  2025.10.29 ~ 2025.12.02
+                </span>
+              </div>
+            </summary>
+            <div class="project-desc">
+              키워드
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - CloudTrail · GuardDuty<br>
+                - EventBridge · Lambda<br>
+                - 자동 대응 (Auto Remediation)<br>
+                - SOAR 아키텍처 설계<br><br>
+              </div>
+
+              1. 프로젝트 개요 (Overview)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                AWS 클라우드 환경에서 발생하는 보안 위협을 단순 모니터링하는 수준을 넘어,<br>
+                실시간 탐지 시 즉각적인 기술적 조치(Remediation)가 실행되도록 자동화 파이프라인을 구축했습니다.<br>
+                보안 사고의 골든타임을 확보하고 운영자의 업무 부하를 줄이기 위해 탐지부터 기록, 시각화까지<br>
+                End-to-End 보안 프로세스를 정립했습니다.<br><br>
+              </div>
+
+              2. 문제 정의 (Problem)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 대응 지연 및 누락 : 보안 이벤트 탐지 후 운영자 수동 개입 필요하여 취약 시간대 대응 지연 발생<br>
+                - 설계적 취약성 : IAM 권한 오남용, S3 Public 노출 등 반복되는 설정오류에 대한 근본적 차단책 부재<br>
+                - 로그 가시성 부족 : 발생한 이벤트가 조치로 이어졌는지 추적성이 낮고 사후 감사 자료 활용의 어려움<br><br>
+              </div>
+
+              3. 설계 목표 (Goals)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 위험도별 대응 분기 : Critical(즉각 차단), High(조건부 대응), Medium/Low(기록/알림) 대응 정책 체계화<br>
+                - 자동화된 Remediation : Lambda와 Boto3를 활용하여 위협 요소를 실시간으로 격리 및 차단<br>
+                - 컴플라이언스 준수 : ISO 27001 및 NIST CSF 표준을 충족하는 로깅 및 통제 구조 설계<br>
+                - 가시성 확보 : WebSocket API 활용 이벤트 처리 흐름(New → Processing → Mitigated) 실시간 표출<br><br>
+              </div>
+
+              4. 나의 역할 (My Role)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - SOAR 아키텍처 설계 지원 : 리소스 파이프라인 통합 및 위협 대응 흐름 정의<br>
+                - 보안 이벤트 시나리오 : IAM(12종), Network(10종), S3(8종), Logging(6종) 총 34개 시나리오 정의<br>
+                - 탐지 룰 엔진 구축 : EventBridge 기반 패턴 매칭 규칙 설계<br>
+                - 보안 요구사항 및 통제 설계 : ISO 27001 및 NIST CSF 기반 통제 항목 도출<br><br>
+                총 34개 시나리오 중 IAM·Network 중심의 고위험 영역(18종)을 담당하여,<br>
+                침해로 직결되는 이벤트에 대한 탐지 및 자동 대응 기준을 설계했습니다.<br><br>
+              </div>
+
+              5. 핵심 구현 내용 (Key Implementation)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 다중 소스 탐지 : CloudTrail·Config·GuardDuty·Security Hub 이벤트를 EventBridge로 통합 처리<br>
+                - 자동 대응 파이프라인 : SQS 기반 Lambda 실행 구조로 재시도 가능한 자동 대응 구현<br>
+                - 보안 위협 시각화 : EC2 백엔드와 WebSocket 연동으로 위협 수준별 실시간 대시보드 구현<br>
+                - 이력 추적성 강화 : 탐지·대응 전 과정을 DynamoDB에 기록해 감사 추적성 확보<br><br>
+              </div>
+
+              6. 결과 및 검증 (Outcome)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 시나리오 검증 : SSH 전체 오픈, S3 Public 정책 변경 등 고위험 이벤트 시 1초 이내 자동 복구 및 알림<br>
+                - 운영 효율성 증대 : Critical 위협 즉각 자동 차단 로직 적용으로 보안 운영 인력 개입 필요성 감소<br>
+                - 재발 방지 구조 확립 : 잘못된 설정 변경 시 즉시 원상 복구되도록 설계해 사고 재발 가능성 차단<br><br>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <div class="summary-content">
+                <h3 class="project-title">CVE to ZeroDay</h3>
+                <span class="project-subtitle">
+                  CVE 취약점 분석 및 제로데이 공격 탐지·대응 시스템<br>
+                  2025.12.02 ~ 2026.01.08
+                </span>
+              </div>
+            </summary>
+            <div class="project-desc">
+              키워드
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - Kubernetes Security<br>
+                - CVE PoC 및 공격 시나리오 설계<br>
+                - Red/Blue Team 교차 경험<br>
+                - 보안 통제 및 가시성 검증<br><br>
+              </div>
+
+              1. 프로젝트 개요 (Overview)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                본 프로젝트는 Kubernetes 네이티브 환경에서 동작하는<br>
+                자동화된 CVE 재현 시뮬레이터 'C2Z'를 구축하는 것을 목표로 합니다.<br>
+                Helm Chart를 통해 누구나 취약점 환경을 원클릭으로 배포할 수 있는 구조를 설계했으며,<br>
+                CVE 기반으로 작성한 실제 침투 시나리오를 바탕으로<br>
+                공격(Red)과 방어(Blue)의 실효성을 기술적으로 검증하는 시뮬레이션 프로세스를 정립했습니다.<br><br>
+              </div>
+
+              2. 문제 정의 (Problem)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 단편적 취약점 분석 한계 : 개별 CVE 중심 분석으로 실제 Kubernetes 클러스터 침투 시나리오 검증 부족<br>
+                - 방어통제 실효성 불확실 : Network Policy·RBAC 등 보안설정의 실제 익스플로잇 환경 유효성 검증 필요<br>
+                - 거버넌스와 기술 간 괴리 : 규정상의 보안 통제가 기술 레벨에서 어떻게 구현·탐지되는지 기준 모호<br>
+                - 환경 구축 비효율성 : 취약 환경 매번 수동 구성해야 해 반복 실험과 체계적 검증 한계<br><br>
+              </div>
+
+              3. 설계 목표 (Goals)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 실전 공격 시나리오 재현 : 권한 상승·컨테이너 탈출 등 실제 침해로 이어지는 고위험 공격 흐름 구현<br>
+                - 단계별 침투 검증 : CVE-2024-1086 등 파급력 높은 취약점을 활용한 단계적 공격 시나리오 설계<br>
+                - 방어 실효성 검증 : 공격 단계별로 탐지·차단 가능한 블루팀 보안 관제 포인트 도출<br>
+                - 통합 보안 가시성 확보 : 공격 트래픽과 로그를 실시간으로 수집·시각화해 침해 흐름 추적 가능 구조 설계<br>
+                - 재현 자동화 : Helm Chart 기반 배포로 누구나 동일한 취약 환경을 손쉽게 구성할 수 있도록 자동화<br>
+                - 워게임 체계화 : 공격–방어를 반복 검증할 수 있는 Red Team · Blue Team 워게임 구조 확립<br><br>
+              </div>
+
+              4. 나의 역할 (My Role)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 침투 시나리오 설계 : 최신 CVE 기반 Initial Access → Privilege Escalation → Exfiltration 진행<br>
+                - 취약 환경 컨테이너화 : 취약 버전 라이브러리 포함한 커스텀 이미지 빌드 및 GitHub 기반 취약 환경 관리<br>
+                - 관제 아키텍처 구축 : Prometheus·Loki·Grafana 활용한 공격 징후 실시간 탐지·시각화 파이프라인 구축<br>
+                - 보안 통제 유효성 검증 : 공격 재현 결과를 바탕으로 패치 및 설정 변경 전·후의 방어 효과 비교 분석<br>
+                - CI/CD 및 프로젝트 거버넌스 : GitHub Actions 기반 보안 도구 배포 자동화와 Red/Blue Team 워게임 시뮬레이션 전체 흐름 조율<br><br>
+              </div>
+
+              5. 핵심 구현 내용 (Key Implementation)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - CVE PoC 구현 : 커널 취약점을 이용한 컨테이너 권한 상승 및 외부 유출 시나리오 PoC 재현<br>
+                - 공격 트래픽 분석 : tcpdump·Zeek·Suricata 기반 L4–L7 공격 패턴 수집 및 로그 상관 분석<br>
+                - 실시간 위협 시각화 : 공격 성공 시 발생하는 이상 징후를 Grafana 대시보드로 실시간 가시화<br>
+                - IaC 기반 환경 제공 : k3s/k3d 환경에서 Helm Chart로 취약·모니터링 환경 원클릭 배포<br>
+                - 외부 협업 환경 구성 : Cloudflare Tunnel 기반 안전한 외부 접근 경로 및 접근 로그 관리<br><br>
+              </div>
+
+              6. 결과 및 검증 (Outcome)
+              <div style="padding-left: 20px; margin-top: 5px;">
+                - 공격-방어 루프 완성 : 공격자 사용 기법(TTPs)이 보안 장비(IDS/IPS)에서 어떻게 탐지되는지 수치 증명<br>
+                - 보안 패치 유효성 확인 : 보안 패치 적용 전/후의 익스플로잇 성공 여부를 비교하여 기술적 통제 효과 입증<br>
+                - 오픈소스 기여 : GitHub(s2n0n/c2z)를 통해 누구나 쿠버네티스 보안을 학습할 수 있는 환경 릴리즈<br><br>
+              </div>
+            </div>
+          </details>
+
+        </div>
       </div>
     </section>
 
@@ -246,10 +500,25 @@
     <section class="about-section">
       <div class="section-title">
         <div class="index">02</div>
-        <h2>PROJECT 2</h2>
+        <h2>SIDE<br>PROJECT</h2>
       </div>
       <div class="section-content">
-        (내용 첨부 필요)
+        <div class="project-list">
+
+          <details>
+            <summary>
+              <div class="summary-content">
+                <h3 class="project-title">Side Project A</h3>
+                <span class="project-subtitle">재미있는 아이디어를 구현해본 프로젝트</span>
+              </div>
+            </summary>
+            <div class="project-desc">
+              개인적으로 진행한 사이드 프로젝트 설명입니다.<br><br>
+              기술적인 챌린지나 새로운 시도에 대한 내용을 작성합니다.
+            </div>
+          </details>
+
+        </div>
       </div>
     </section>
 
@@ -257,10 +526,25 @@
     <section class="about-section">
       <div class="section-title">
         <div class="index">03</div>
-        <h2>SIDE<br>PROJECT</h2>
+        <h2>PERSONAL<br>PROJECT</h2>
       </div>
       <div class="section-content">
-        (내용 첨부 필요)
+        <div class="project-list">
+
+          <details>
+            <summary>
+              <div class="summary-content">
+                <h3 class="project-title">Security Research Topic</h3>
+                <span class="project-subtitle">최신 보안 트렌드 분석 및 연구</span>
+              </div>
+            </summary>
+            <div class="project-desc">
+              보안 관련 연구 주제 및 결과물에 대한 설명입니다.<br><br>
+              분석 리포트나 탐구 과정을 서술합니다.
+            </div>
+          </details>
+
+        </div>
       </div>
     </section>
 
@@ -268,10 +552,24 @@
     <section class="about-section">
       <div class="section-title">
         <div class="index">04</div>
-        <h2>PERSONAL<br>PROJECT</h2>
+        <h2>OTHERS</h2>
       </div>
       <div class="section-content">
-        (내용 첨부 필요)
+        <div class="project-list">
+
+          <details>
+            <summary>
+              <div class="summary-content">
+                <h3 class="project-title">Other Activities</h3>
+                <span class="project-subtitle">컨퍼런스 참여 및 대외 활동 기록</span>
+              </div>
+            </summary>
+            <div class="project-desc">
+              기타 대외활동이나 세미나, 컨퍼런스 참여 경험 등을 작성합니다.
+            </div>
+          </details>
+
+        </div>
       </div>
     </section>
 
@@ -289,6 +587,105 @@
     }, { threshold: 0.3 });
 
     sections.forEach(section => observer.observe(section));
+
+    /* =========================================
+       Smooth Accordion Animation Logic
+       ========================================= */
+    const detailsElements = document.querySelectorAll("details");
+
+    detailsElements.forEach((detail) => {
+      const summary = detail.querySelector("summary");
+
+      summary.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent default instant toggle behavior
+
+        if (detail.hasAttribute("open")) {
+          // If already open -> Close it
+          closeAccordion(detail);
+        } else {
+          // If closed -> Open it (and close others)
+          // 1. Close other open details
+          detailsElements.forEach((other) => {
+            if (other !== detail && other.hasAttribute("open")) {
+              closeAccordion(other);
+            }
+          });
+          // 2. Open this one
+          openAccordion(detail);
+
+          // 3. Scroll to the opened project after animation
+          // The closing animation takes 300ms, so we wait slightly longer to ensure layout stability
+          setTimeout(() => {
+            const headerOffset = 100; // Height of sticky header + small margin
+            const elementPosition = detail.getBoundingClientRect().top;
+            const offsetPosition = window.pageYOffset + elementPosition - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }, 350);
+        }
+      });
+    });
+
+    function openAccordion(detail) {
+      // 1. Calculate the height of the summary (closed state height)
+      // Note: details has padding-bottom: 10px
+      const summaryHeight = detail.querySelector('summary').offsetHeight + 10;
+
+      // 2. Set explicit height to start animation from
+      detail.style.height = `${summaryHeight}px`;
+
+      // 3. Add 'open' attribute so content renders (but is hidden by fixed height)
+      detail.setAttribute("open", "");
+
+      // 4. Calculate full height (summary + content)
+      const fullHeight = detail.scrollHeight;
+
+      // 5. Animate
+      const animation = detail.animate(
+        [
+          { height: `${summaryHeight}px` },
+          { height: `${fullHeight}px` }
+        ],
+        {
+          duration: 300,
+          easing: "ease-out"
+        }
+      );
+
+      // 6. Cleanup after animation
+      animation.onfinish = () => {
+        detail.style.height = ""; // Reset to auto so it remains responsive
+      };
+    }
+
+    function closeAccordion(detail) {
+      // 1. Capture current full height
+      const startHeight = detail.offsetHeight;
+
+      // 2. Calculate target height (summary + padding)
+      const summaryHeight = detail.querySelector('summary').offsetHeight + 10;
+
+      // 3. Animate
+      const animation = detail.animate(
+        [
+          { height: `${startHeight}px` },
+          { height: `${summaryHeight}px` }
+        ],
+        {
+          duration: 300,
+          easing: "ease-out"
+        }
+      );
+
+      // 4. When finished, remove 'open' attribute
+      animation.onfinish = () => {
+        detail.removeAttribute("open");
+        detail.style.height = "";
+      };
+    }
   </script>
 
 </body>
